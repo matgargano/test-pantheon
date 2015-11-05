@@ -10,11 +10,59 @@
     {
       "type": "composer",
       "url": "http://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-migrate-db-pro",
+        "type": "wordpress-plugin",
+        "version": "1.5.2",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-migrate-db-pro-latest.zip?licence_key=99635f70-1007-4569-b8ea-08e650e5f96e&site_url=statenweb.com"
+        },
+        "require": {
+          "composer/installers": "v1.0.7"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-migrate-db-pro-media-files",
+        "type": "wordpress-plugin",
+        "version": "1.4",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-migrate-db-pro-media-files-latest.zip?licence_key=99635f70-1007-4569-b8ea-08e650e5f96e&site_url=statenweb.com"
+        },
+        "require": {
+          "composer/installers": "v1.0.7"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "deliciousbrains/wp-migrate-db-pro-cli",
+        "type": "wordpress-plugin",
+        "version": "1.2.2",
+        "dist": {
+          "type": "zip",
+          "url": "https://deliciousbrains.com/dl/wp-migrate-db-pro-cli-latest.zip?licence_key=99635f70-1007-4569-b8ea-08e650e5f96e&site_url=statenweb.com"
+        },
+        "require": {
+          "composer/installers": "v1.0.7"
+        }
+      }
     }
   ],
   "require": {
     "wpackagist-plugin/wordpress-seo": "~2.0",
-    "mgargano/non-production-robots-ignore": "^0.1.2"
+    "mgargano/non-production-robots-ignore": "^0.1.2",
+    "deliciousbrains/wp-migrate-db-pro-media-files": "1.4",
+    "deliciousbrains/wp-migrate-db-pro": "1.5.2",
+    "deliciousbrains/wp-migrate-db-pro-cli": "1.2.2"
   },
   "extra": {
 

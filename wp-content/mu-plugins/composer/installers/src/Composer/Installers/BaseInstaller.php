@@ -1,7 +1,6 @@
 <?php
 namespace Composer\Installers;
 
-use Composer\IO\IOInterface;
 use Composer\Composer;
 use Composer\Package\PackageInterface;
 
@@ -10,20 +9,17 @@ abstract class BaseInstaller
     protected $locations = array();
     protected $composer;
     protected $package;
-    protected $io;
 
     /**
      * Initializes base installer.
      *
      * @param PackageInterface $package
      * @param Composer         $composer
-     * @param IOInterface      $io
      */
-    public function __construct(PackageInterface $package = null, Composer $composer = null, IOInterface $io = null)
+    public function __construct(PackageInterface $package = null, Composer $composer = null)
     {
         $this->composer = $composer;
         $this->package = $package;
-        $this->io = $io;
     }
 
     /**
@@ -63,12 +59,11 @@ abstract class BaseInstaller
         }
 
         $packageType = substr($type, strlen($frameworkType) + 1);
-        $locations = $this->getLocations();
-        if (!isset($locations[$packageType])) {
+        if (!isset($this->locations[$packageType])) {
             throw new \InvalidArgumentException(sprintf('Package type "%s" is not supported', $type));
         }
 
-        return $this->templatePath($locations[$packageType], $availableVars);
+        return $this->templatePath($this->locations[$packageType], $availableVars);
     }
 
     /**
