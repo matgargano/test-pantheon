@@ -58,7 +58,6 @@
     }
   ],
   "require": {
-    "wpackagist-plugin/wordpress-seo": "~2.0",
     "mgargano/non-production-robots-ignore": "^0.1.2",
     "deliciousbrains/wp-migrate-db-pro-media-files": "1.4",
     "deliciousbrains/wp-migrate-db-pro": "1.5.2",
