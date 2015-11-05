@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+
+# Get Pantheon's Command Line Tool, terminus.
+sudo curl https://github.com/pantheon-systems/cli/releases/download/0.5.5/terminus.phar -L -o /usr/local/bin/terminus && sudo chmod +x /usr/local/bin/terminus
+
+# Log into terminus.
+terminus auth login $PANTHEON_EMAIL --password=$PANTHEON_PASSWORD
+
+# Clone deployment repository.
+expect <<delim
+  set timeout 60
+  eval spawn git clone $PANTHEON_CODE pantheon
+  set prompt ":|#|\\\$"
+  interact -o -nobuffer -re $prompt return
+  send "$PANTHEON_PASSWORD\r"
+expect eof
+delim

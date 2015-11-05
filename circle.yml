@@ -1,0 +1,27 @@
+machine:
+  php:
+    version: 5.5.21
+dependencies:
+  pre:
+    - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    - chmod +x wp-cli.phar
+
+
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
+test:
+  override:
+    - echo 'WRITE SOME TESTS!'
+deployment:
+  staging:
+    branch: development
+    commands:
+      - git remote add wpengine git@git.wpengine.com:staging/forthepeople
+      - git push wpengine --force
+  production:
+    branch: master
+    commands:
+      - git remote add wpengine git@git.wpengine.com:production/forthepeople
+      - git push wpengine --force
